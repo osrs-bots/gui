@@ -42,7 +42,7 @@ class App(customtkinter.CTk):
 
     def start_button_callback(self):
         """"Start Button"""
-        # Magic().high_alchemy()
+        Magic().high_alchemy()
 
 
     def stop_button_callback(self):
