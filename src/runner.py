@@ -4,7 +4,7 @@ import customtkinter
 from osrs_python_bot.src.bots.magic import Magic
 
 
-class AvailableBotsFrame(customtkinter.CTkFrame):
+class AvailableBotsFrame(customtkinter.CTkFrame): # pylint: disable=too-few-public-methods
     """List the available bots menu."""
     def __init__(self, master):
         super().__init__(master)
@@ -15,7 +15,7 @@ class AvailableBotsFrame(customtkinter.CTkFrame):
         self.checkbox_2.grid(row=1, column=0, padx=10, pady=(10, 0), sticky="w")
 
 
-class App(customtkinter.CTk):
+class App(customtkinter.CTk): # pylint: disable=too-few-public-methods
     """Application Class"""
     def __init__(self):
         super().__init__()
