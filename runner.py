@@ -30,13 +30,15 @@ class App(customtkinter.CTk):
 
         # START BUTTON
         self.start_button = customtkinter.CTkButton(
-            self, text="start", command=self.start_button_callback, fg_color="green", hover_color="green"
+            self, text="start", command=self.start_button_callback,
+            fg_color="green", hover_color="green"
         )
         self.start_button.grid(row=2, column=0, padx=20, pady=30, sticky="ew", columnspan=2)
 
         # STOP BUTTON
         self.stop_button = customtkinter.CTkButton(
-            self, text="stop", command=self.stop_button_callback, fg_color="red", hover_color="red"
+            self, text="stop", command=self.stop_button_callback,
+            fg_color="red", hover_color="red"
         )
         self.stop_button.grid(row=3, column=0, padx=20, pady=1, sticky="ew", columnspan=2)
 
