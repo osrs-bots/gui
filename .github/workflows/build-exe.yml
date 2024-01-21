@@ -1,13 +1,12 @@
-name: Build Workflow
+name: Build Release Artifact
 
 on:
   release:
     types: [published]
-#    branches: master
 
 jobs:
-  build-windows:
-    runs-on: windows-2019
+  build:
+    runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v1
@@ -22,30 +21,16 @@ jobs:
         run: |
           pip install -r requirements.txt
 
-      - name: Create Exe File
+      - name: (Create) Executable
         run: |
-          pip install pyinstaller
-          python -m pyinstaller runner.spec
+          pip install pyinstaller  
+          pyinstaller runner.spec
       - uses: actions/upload-artifact@v2
         with:
           name: osrs_bots
           path: dist/runner.exe
 
-      - name: create release
-        id: create_release
-        uses: actions/create-release@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          tag_name: ${{ github.event.head_commit.message }}
-          release_name: ${{ github.event.head_commit.message }}
-          overwrite: true
-          body: |
-            0.1.0
-          draft: false
-          prerelease: false
-
-      - name: Upload Release Asset
+      - name: (Upload) Executable
         id: upload-release-asset
         uses: actions/upload-release-asset@v1
         env:
