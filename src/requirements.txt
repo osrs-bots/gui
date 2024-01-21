@@ -1,4 +1,0 @@
-pylint
-pyautogui
-customtkinter
-osrs-python-bot
