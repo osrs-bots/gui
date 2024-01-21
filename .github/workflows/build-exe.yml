@@ -1,4 +1,4 @@
-name: Build Release Artifact
+name: Build Release Assets
 
 on:
   release:
@@ -11,28 +11,28 @@ jobs:
       - name: 🛒 Checkout
         uses: actions/checkout@v1
 
-      - name: 🐍 (Install) Python
+      - name: 🐍 Install Python
         uses: actions/setup-python@v1
         with:
           python-version: '3.7'
           architecture: 'x64'
 
-      - name: 🔨 (Install) Dependencies
+      - name: 🔨 Install Dependencies
         run: |
           pip install -r requirements.txt
 
-      - name: 🏃‍♂️ (Create) Executable
+      - name: 🏃‍♂️ Create Executable
         run: |
           pip install pyinstaller  
           pyinstaller runner.spec
 
-      - name: ⬆️ (Upload) Artifact
+      - name: ⬆️ Upload Artifact
         uses: actions/upload-artifact@v4
         with:
           name: osrs_bots
           path: dist/runner.exe
 
-      - name: 📦 (Upload) Release Asset
+      - name: 📦 Upload Release Asset
         id: upload-release-asset
         uses: actions/upload-release-asset@v1
         env:
