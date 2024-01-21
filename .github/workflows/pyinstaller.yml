@@ -13,4 +13,4 @@ jobs:
           spec: 'src/runner.py'
           requirements: 'src/requirements.txt'
           upload_exe_with_name: 'osrs-bots'
-          options: --onefile, --name 'osrs-bots', --windowed,
+          options: --onefile, --name "osrs-bots", --windowed,
