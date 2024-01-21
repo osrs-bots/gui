@@ -1,3 +1,7 @@
+on:
+  release:
+    types: [published]
+
 jobs:
   pyinstaller-build:
     runs-on: windows-latest
