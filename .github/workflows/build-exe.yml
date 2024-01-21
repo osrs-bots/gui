@@ -39,6 +39,6 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           upload_url: ${{ github.event.release.upload_url }} 
-          asset_path: osrs_bots/
+          asset_path: dist/runner
           asset_name: osrs-bots-runner-Windows-amd64.exe
           asset_content_type: application/zip
