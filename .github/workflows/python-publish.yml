@@ -34,7 +34,7 @@ jobs:
       - name: (Create) Executable
         shell: bash
         run: |
-          pyinstaller --onefile src/runner.py
+          pyinstaller --onefile --windowed src/runner.py
           
           echo "✔️ Executable created successfully at _'./dist'_" >> $GITHUB_STEP_SUMMARY
           echo "  - Python version used: '3.x'" >> $GITHUB_STEP_SUMMARY
