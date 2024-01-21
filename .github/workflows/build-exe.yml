@@ -24,7 +24,7 @@ jobs:
       - name: (Create) Executable
         run: |
           pip install pyinstaller  
-          pyinstaller src/runner.spec
+          pyinstaller runner.spec
       - uses: actions/upload-artifact@v2
         with:
           name: osrs_bots
