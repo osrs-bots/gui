@@ -3,7 +3,6 @@ import sys
 import customtkinter
 from osrs_python_bot.src.bots.magic import Magic
 
-
 class AvailableBotsFrame(customtkinter.CTkFrame): # pylint: disable=too-many-ancestors, disable=too-few-public-methods
     """List the available bots menu."""
     def __init__(self, master):
