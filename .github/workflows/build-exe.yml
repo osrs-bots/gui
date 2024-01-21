@@ -27,7 +27,7 @@ jobs:
           pyinstaller runner.spec
 
       - name: (Upload) Artifact
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: osrs_bots
           path: dist/runner.exe
