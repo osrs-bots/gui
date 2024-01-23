@@ -12,7 +12,6 @@ class App(customtkinter.CTk):
         """application configuration and main grid layout with frames"""
         super().__init__()
         self.title("osrs-bots")
-        self.iconbitmap("logo.ico")
         self.grid_columnconfigure(0, weight=4)
         self.grid_rowconfigure(0, weight=1)
 
