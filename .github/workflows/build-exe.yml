@@ -24,7 +24,7 @@ jobs:
       - name: 🏃‍♂️ Create Executable
         run: |
           pip install pyinstaller  
-          pyinstaller --oneFile --icon=logo.ico --noconsole runner.spec
+          pyinstaller --onefile --icon=logo.ico --noconsole runner.spec
 
       - name: ⬆️ Upload Artifact
         uses: actions/upload-artifact@v4
