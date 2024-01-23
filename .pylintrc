@@ -3,3 +3,4 @@
 # Minimum lines number of a similarity.
 min-similarity-lines=6
 max-statements=200
+max-parents=25

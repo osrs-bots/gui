@@ -1,4 +1,4 @@
-name: Build Release Assets
+name: 💪 Build Release Assets
 
 on:
   release:
@@ -24,7 +24,7 @@ jobs:
       - name: 🏃‍♂️ Create Executable
         run: |
           pip install pyinstaller  
-          pyinstaller runner.spec
+          pyinstaller --oneFile --icon=logo.ico --noconsole runner.spec
 
       - name: ⬆️ Upload Artifact
         uses: actions/upload-artifact@v4
