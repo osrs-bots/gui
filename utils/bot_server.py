@@ -14,14 +14,19 @@ class TCPServer(Thread):
         server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
         server.bind(("localhost", 3363))
         server.listen(1)
-        running_bot = ""
+        bot = ""
+
         while True:
-            conn, address = server.accept()  # Establish connection with client.
+            conn, address = server.accept()
             print("server listening at" + str(address))
             data = conn.recv(1024)
-            name = data.decode()
-            running_bot = name
-            print("running_bot" + running_bot)
 
-            if running_bot != "xxx":
-                utils.bot_client.run_bot(running_bot)
+            selected_bot_and_key = data.decode().split("/")
+            bot = selected_bot_and_key[0]
+            key = selected_bot_and_key[1]
+
+            print("checking " + key + " for access")
+            # THIS IS WHERE THE GOLDEN BOT KEY NEEDS TO BE VALIDATED
+
+            if bot != "xxx":
+                utils.bot_client.run_bot(bot, key)
