@@ -5,19 +5,24 @@ import customtkinter
 
 class ActionButtonsFrame(customtkinter.CTkFrame):
     """contains action buttons for starting and stopping bopt"""
-    def __init__(self, master, bot_list_frame):
+    def __init__(self, master, bot_key_frame, bot_list_frame):
         super().__init__(master)
         self.grid_columnconfigure(0, weight=1)
+
         # START BUTTON
         green_color = "#1b5e20"
         self.start_button = customtkinter.CTkButton(
             self,
             text="Start",
-            command=lambda: self.start_button_callback(bot_list_frame=bot_list_frame),
+            command=lambda: self.start_button_callback(
+                bot_key_frame=bot_key_frame,
+                bot_list_frame=bot_list_frame
+            ),
             fg_color=green_color,
             hover_color=green_color
         )
         self.start_button.grid(row=0, column=0, padx=10, pady=10, sticky="ew")
+
         # STOP BUTTON
         red_color = "#b71c1c"
         self.stop_button = customtkinter.CTkButton(
@@ -29,20 +34,24 @@ class ActionButtonsFrame(customtkinter.CTkFrame):
         )
         self.stop_button.grid(row=1, padx=10, pady=10, sticky="ew")
 
-    def start_button_callback(self, bot_list_frame):
+    # START BUTTON CALLBACK
+    def start_button_callback(self, bot_key_frame, bot_list_frame):
         """calls tcp server to engage the correct bot"""
+        # bot key information
+        bot_key = bot_key_frame.bot_key_entry.get()
+        # selected bot
         name = "".join(bot_list_frame.get())
 
+        # send selected bot and key to server
         with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as sock:
-            # Connect to server and send data
             sock.connect(("localhost", 3363))
-            st = str(name)
+            st = str(name + "/" + bot_key)
             byt = st.encode()
             sock.send(byt)
             sock.close()
 
-
+    # STOP BUTTON CALLBACK
     def stop_button_callback(self):
-        """terminates the gui completely"""
-        print("terminates the app")
+        """terminates the system completely"""
+        # self destruct app
         sys.exit(1)
